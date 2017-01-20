@@ -59,7 +59,8 @@ module.exports = {
     publicPath: '/public/'
   },
   resolve: {
-    extensions: ['', '.js']
+    modulesDirectories: ['node_modules', 'scripts'],
+    extensions: ['', '.js', '.jsx']
   },
   devtool: 'eval-source-map',
   plugins: [
@@ -69,6 +70,7 @@ module.exports = {
   module: {
     loaders: [
       {
+        exclude: /node_modules/,
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'scripts')
