@@ -46,6 +46,9 @@
 
 const webpack = require('webpack');
 const path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+//combine multiple loaders
+var combineLoaders = require('webpack-combine-loaders');
 
 module.exports = {
   entry: [
@@ -74,7 +77,11 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'scripts')
-      }
-    ]
+      },
+      {
+        test: /\.css/,
+        loaders: ['style', 'css'],
+        include: __dirname + '/scripts'
+    }],
   }
 };
