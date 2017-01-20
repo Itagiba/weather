@@ -1,7 +1,7 @@
 {
   "name": "react-es6-webpack-boilerplate",
   "version": "5.0.0",
-  "description": "Boilerplate for kick starting a React Project with ES6 (Babel) and Hot reloader using Webpack.",
+  "description": "Using react-es6-webpack-boilerplate",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vasanthk/react-es6-webpack-boilerplate.git"
+    "url": "https://github.com:Itagiba/wh-task.git"
   },
   "keywords": [
     "react",
