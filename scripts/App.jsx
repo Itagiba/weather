@@ -5,6 +5,7 @@ import { getLocationCoords, getWeatherData } from 'api';
 import superagent from 'superagent';
 import jsonp from 'superagent-jsonp';
 import styles from './app.css';
+const  myApi = 'http://api.openweathermap.org/data/2.5/forecast?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=5'
 
 export default class App extends Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class App extends Component {
     };
   }
   componentWillMount() {
-      var myApi = 'http://api.openweathermap.org/data/2.5/forecast?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=1'
       superagent.get(myApi).then((response) => {
         console.log(response.body.list[0].main.temp)
         console.log(response.body.list[0].weather[0].main)
@@ -43,7 +43,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Weather for{this.state.locationName} </h1>
+        <h1>Weather for&nbsp;{this.state.locationName} </h1>
         <h2>
             {this.state.weatherSummaryDescription} &nbsp;
             <Temp temp={this.state.locTemp} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
