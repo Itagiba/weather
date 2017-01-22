@@ -1,5 +1,5 @@
 body{
-  background:#000;
+  background:rgba(22, 0, 56, 1);
   font-family:sans-serif;
   color:#666;
   margin:2em 0;
@@ -40,7 +40,7 @@ p {
   flex-flow: row wrap;
   justify-content: center;
   max-width: 80%;
-  border:1px solid white;
+  border:1px solid #7f7292;
   margin:auto;
 }
 
@@ -69,7 +69,8 @@ span.temp, h3, a {
   display: inline-block;
   width: 12em;
   height: 10em;
-  font-size: 1em; /* control icon size here */
+  font-size: 1em;
+  color: rgba(22, 0, 56, 1);
 }
 
 .cloud {
@@ -116,6 +117,7 @@ span.temp, h3, a {
 .cloud:nth-child(2):after { background: #fff; }
 
 .sun {
+  color:rgba(255, 216, 61, 1);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -124,7 +126,7 @@ span.temp, h3, a {
   margin: -1.25em;
   background: currentColor;
   border-radius: 50%;
-  box-shadow: 0 0 0 0.375em #fff;
+  box-shadow: 0 0 0 0.375em rgba(255, 216, 61, 1);
   animation: spin 12s infinite linear;
 }
 .rays {
@@ -135,9 +137,9 @@ span.temp, h3, a {
   width: 0.375em;
   height: 1.125em;
   margin-left: -0.1875em;
-  background: #fff;
+  background: rgba(255, 216, 61, 1);
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em rgba(255, 216, 61, 1);
 }
 .rays:before,
 .rays:after {
@@ -150,9 +152,9 @@ span.temp, h3, a {
   height: 1.125em;
   transform: rotate(60deg);
   transform-origin: 50% 3.25em;
-  background: #fff;
+  background: rgba(255, 216, 61, 1);
   border-radius: 0.25em;
-  box-shadow: 0 5.375em #fff;
+  box-shadow: 0 5.375em rgba(255, 216, 61, 1);
 }
 .rays:before {
   transform: rotate(120deg);
