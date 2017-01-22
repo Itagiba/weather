@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+const Timestamp = require('react-timestamp');
 import { getLocationCoords, getWeatherData } from 'api';
 import superagent from 'superagent';
 import MyForecast from 'MyForecast';
@@ -7,7 +8,7 @@ import jsonp from 'superagent-jsonp';
 import styles from './app.css';
 import Temp from 'Temp';
 import WeatherIcon from 'WeatherIcon';
-const  WeatherData = 'http://api.openweathermap.org/data/2.5/forecast?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=10'
+const  WeatherData = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=5'
 
 
 function fakeWeatherAPI() {
@@ -38,6 +39,7 @@ export default class App extends React.Component {
 
                       })
 
+                      console.log(JSON.stringify(this.state.everyDay))
 
               });
 
@@ -50,25 +52,31 @@ export default class App extends React.Component {
     });
   }
     render() {
+
         const {city, everyDay} = this.state;
-        const forecastsPerDay = everyDay.map((day, i) => {
+        const forecastsPerDay = everyDay.map((list, i) => {
             return (
-                <div key={i}>
-                  <h3>on {day.dt_txt}</h3>
-                  <h2>
-                    {day.weather[0].description}&nbsp;
-                    <Temp temp={day.main.temp} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
-                  </h2>
-                  <WeatherIcon weather={day.weather[0].main} />
-                  <p>ID: {day.dt} </p>
-                </div>
+                <div key={i} className="oneDay">
+                    <h2><Timestamp time={list.dt} format='date'/> </h2>
+                    <h3>{list.weather[0].description}&nbsp;</h3>
+                      <ul>
+                        <li>Min:&nbsp;
+                        <Temp temp={list.temp.min} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
+                        </li>
+                        <li>Max:&nbsp;
+                        <Temp temp={list.temp.max} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
+                        </li>
+                      </ul>
+                    <WeatherIcon weather={list.weather[0].main} />
+              </div>
             );
         });
 
         return (
             <div>
-                <h1>Forecast for&nbsp; {city.name}, {city.country}</h1>
-                {forecastsPerDay}
+
+                <h1><span>5-day Weather Forecast for&nbsp;</span> {city.name}</h1>
+                <div className="everyDay">{forecastsPerDay}</div>
             </div>
         );
     }

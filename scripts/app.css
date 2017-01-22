@@ -1,11 +1,30 @@
 body{
   background:#000;
-}
-p, h1, h2, h3 {
-   color:white;
   font-family:sans-serif;
+  color:#666;
+  margin:2em 0;
+}
+
+ul{
+  list-style-type:none;
+  text-align: center;
+  padding:0;}
+
+h1, h2, h3 {
+  color:#FFF;
   text-align: center;
 }
+
+h1{
+  margin-bottom:1em;
+}
+
+h1 span{
+  font-size:0.5em;
+  display:block;
+  font-weight: normal;
+}
+
 h2 {
   margin-bottom: 0;
 }
@@ -14,6 +33,20 @@ h3 {margin-top: 0 !important;}
 p {
   line-height:130%;
   font-size:1.09em;
+}
+
+.everyDay{
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  max-width: 80%;
+  border:1px solid white;
+  margin:auto;
+}
+
+.everyDay.oneDay{
+  flex-grow:1;
+  order:2;
 }
 
 
