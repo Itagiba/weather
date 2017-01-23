@@ -35,11 +35,8 @@ export default class App extends React.Component {
                        everyDay : response.body.list
 
                       })
-
                       console.log(JSON.stringify(this.state.everyDay))
-
               });
-
   }
   toggleDisplayUnits() {
     this.state.displayUnits === 'F' ? this.setState({

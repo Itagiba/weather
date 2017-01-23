@@ -1,7 +1,7 @@
 {
-  "name": "react-es6-webpack-boilerplate",
-  "version": "5.0.0",
-  "description": "Using react-es6-webpack-boilerplate",
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Built on top of react-es6-webpack-boilerplate",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
