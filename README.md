@@ -16,6 +16,36 @@ This project uses the [Open Weather Map API](http://openweathermap.org/). It com
 * It uses a pre-set (q) city name and an unique openweathermap key
 * The call is stored in a `WeatherData` constant at the top of your APP page
 
+### Usage
+The server.js file can be found at the root directory
+```
+npm install
+npm start
+Open http://localhost:5000
+```
+
+
+### File Location
+
+    .
+    ├── ...
+    ├── scripts                 
+    │   ├── App-single.jsx      # An example of retrieving the weather for the current day/time
+    │   ├── app.css             # Required Styles
+    │   ├── App.jsx             # Key JSX file containing call to API and required funcions
+    │   ├── index.js            # The root destination for the rendered APP
+    │   ├── Temp.jsx            # Temperature converter   
+    │   └── WeatherIcon.jsx     # Weather icon generator
+    └── ...
+
+### Linting
+
+ESLint with React linting options have been enabled.
+
+```
+npm run lint
+```
+
 ####Webpack configuration
 Output directory for the project.The bundle.js file can be found in index.html
 ```
@@ -42,6 +72,7 @@ style-loader and css-loader have been added to this project.
         include: __dirname + '/scripts'
     }],
 ```
+
 ## The Weather APP
 
 ##Documentation
@@ -136,7 +167,7 @@ toggleDisplayUnits() {
 ```
   
   
-###5. Import the WeatherIcon (adapted existing) class and convert the values of `WeatherData` into "animated weather icons"
+####5. Import the WeatherIcon (adapted existing) class and convert the values of `WeatherData` into "animated weather icons"
 
 ```
 import WeatherIcon from 'WeatherIcon';
@@ -152,7 +183,7 @@ toggleDisplayUnits() {
   }
 ```
   
-###7. Use [react-timestamp](https://github.com/nathanhoad/react-timestamp) to convert the dt value in `WeatherData` to a readable format.
+####7. Use [react-timestamp](https://github.com/nathanhoad/react-timestamp) to convert the dt value in `WeatherData` to a readable format.
 
 
 ```
@@ -162,35 +193,7 @@ const Timestamp = require('react-timestamp');
 ```
 
 
-### Usage
-The server.js file can be found at the root directory
-```
-npm install
-npm start
-Open http://localhost:5000
-```
 
-
-### File Location
-
-    .
-    ├── ...
-    ├── scripts                 
-    │   ├── App-single.jsx      # An example of retrieving the weather for the current day/time
-    │   ├── app.css             # Required Styles
-    │   ├── App.jsx             # Key JSX file containing call to API and required funcions
-    │   ├── index.js            # The root destination for the rendered APP
-    │   ├── Temp.jsx            # Temperature converter   
-    │   └── WeatherIcon.jsx     # Weather icon generator
-    └── ...
-
-### Linting
-
-ESLint with React linting options have been enabled.
-
-```
-npm run lint
-```
 
 
 
