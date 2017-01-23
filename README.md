@@ -27,6 +27,7 @@ Output directory for the project.The bundle.js file can be found in index.html
 ```
 ####Loaders
 style-loader and css-loader have been added to this project.
+
 ```
   loaders: [
       {
@@ -41,13 +42,16 @@ style-loader and css-loader have been added to this project.
         include: __dirname + '/scripts'
     }],
 ```
+## The Weather APP
 
-#Documentation
-###1. Assign the API callback into a constant variable
+##Documentation
+
+####1. Assign the API callback into a constant variable
 ```
 const  WeatherData = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=5'
 ```
-###2. Sets the state for inital objects and makes sure that `everyDay` is set as an array. Use `componentDidMount()` and [superagent](https://visionmedia.github.io/superagent/) to get the values from the API call and reset the state with the response object. 
+####2. Sets the state for inital objects and makes sure that `everyDay` is set as an array. Use `componentDidMount()` and [superagent](https://visionmedia.github.io/superagent/) to get the values from the API call and reset the state with the response object. 
+
 ```
 export default class App extends React.Component {
     constructor(props) {
@@ -74,7 +78,10 @@ export default class App extends React.Component {
    }
 ```
 
-###3. Drill through `WeatherData` and render the values into `UI`elements using `map.get`
+
+####3. Drill through `WeatherData` and render the values into `UI`elements using `map.get`:
+
+
 ```
     render() {
 
@@ -105,8 +112,15 @@ export default class App extends React.Component {
             </div>
         );
     }
-    ```
-###4. Import the Temp class into App.jsx and toggle between celsius and fahrenheit using the function below:
+```
+
+
+    
+    
+    
+####4. Import the Temp class into App.jsx and toggle between celsius and fahrenheit using the function below:
+
+
 ```
 import Temp from 'Temp';
 
@@ -119,10 +133,11 @@ toggleDisplayUnits() {
       displayUnits: 'F'
     });
   }
-  ```
+```
   
   
 ###5. Import the WeatherIcon (adapted existing) class and convert the values of `WeatherData` into "animated weather icons"
+
 ```
 import WeatherIcon from 'WeatherIcon';
 
@@ -135,14 +150,17 @@ toggleDisplayUnits() {
       displayUnits: 'F'
     });
   }
-  ```
+```
   
 ###7. Use [react-timestamp](https://github.com/nathanhoad/react-timestamp) to convert the dt value in `WeatherData` to a readable format.
+
+
 ```
 const Timestamp = require('react-timestamp');
 ...
  <h2><Timestamp time={list.dt} format='date'/> </h2>
 ```
+
 
 ### Usage
 The server.js file can be found at the root directory
@@ -152,7 +170,7 @@ npm start
 Open http://localhost:5000
 ```
 
-## The Weather APP
+
 ### File Location
 
     .
