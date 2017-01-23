@@ -8,13 +8,6 @@ import WeatherIcon from 'WeatherIcon';
 const  WeatherData = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=5'
 
 
-function fakeWeatherAPI() {
-    return Promise.resolve(WeatherData);
-
-}
-
-
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
