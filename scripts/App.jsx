@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 const Timestamp = require('react-timestamp');
-import { getLocationCoords, getWeatherData } from 'api';
 import superagent from 'superagent';
-import MyForecast from 'MyForecast';
-import jsonp from 'superagent-jsonp';
 import styles from './app.css';
 import Temp from 'Temp';
 import WeatherIcon from 'WeatherIcon';
