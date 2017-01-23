@@ -19,12 +19,12 @@
     "babel",
     "webpack"
   ],
-  "author": "Vasanth Krishnamoorthy (http://www.vasanthk.com)",
+  "author": "Lilian IC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vasanthk/react-es6-webpack-boilerplate/issues"
+    "url": "https://github.com/Itagiba/wh-task/issues"
   },
-  "homepage": "https://github.com/vasanthk/react-es6-webpack-boilerplate",
+  "homepage": "",
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "react": "^15.4.1",
