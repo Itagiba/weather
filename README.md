@@ -42,6 +42,107 @@ style-loader and css-loader have been added to this project.
     }],
 ```
 
+#Documentation
+###1. Assign the API callback into a constant variable
+```
+const  WeatherData = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=London,gb&APPID=84b6f7953e0bfd92f96369ca9de13c54&cnt=5'
+```
+###2. Sets the state for inital objects and makes sure that `everyDay` is set as an array. Use `componentDidMount()` and [superagent](https://visionmedia.github.io/superagent/) to get the values from the API call and reset the state with the response object. 
+```
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+          //Make sure that the object is there
+            displayUnits: props.displayUnits,
+            city: 'your local area',
+            displayUnits: 'C',
+            everyDay: []
+        }
+    }
+    
+      componentDidMount() {
+           superagent.get(WeatherData).then((response) => {
+                   this.setState({
+                       city : response.body.city,
+                       everyDay : response.body.list
+
+                      })
+                      console.log(JSON.stringify(this.state.everyDay))
+              });
+   }
+```
+
+###3. Drill through `WeatherData` and render the values into `UI`elements using `map.get`
+```
+    render() {
+
+        const {city, everyDay} = this.state;
+        const forecastsPerDay = everyDay.map((list, i) => {
+            return (
+                <div key={i} className="oneDay">
+                    <h2><Timestamp time={list.dt} format='date'/> </h2>
+                    <h3>{list.weather[0].description}&nbsp;</h3>
+                      <ul>
+                        <li>Min:&nbsp;
+                        <Temp temp={list.temp.min} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
+                        </li>
+                        <li>Max:&nbsp;
+                        <Temp temp={list.temp.max} displayUnits={this.state.displayUnits} clickHandler={this.toggleDisplayUnits.bind(this)}/>
+                        </li>
+                      </ul>
+                    <WeatherIcon weather={list.weather[0].main} />
+              </div>
+            );
+        });
+
+        return (
+            <div>
+
+                <h1><span>5-day Weather Forecast for&nbsp;</span> {city.name}</h1>
+                <div className="everyDay">{forecastsPerDay}</div>
+            </div>
+        );
+    }
+    ```
+###4. Import the Temp class into App.jsx and toggle between celsius and fahrenheit using the function below:
+```
+import Temp from 'Temp';
+
+...
+
+toggleDisplayUnits() {
+    this.state.displayUnits === 'F' ? this.setState({
+      displayUnits: 'C'
+    }) : this.setState({
+      displayUnits: 'F'
+    });
+  }
+  ```
+  
+  
+###5. Import the WeatherIcon (adapted existing) class and convert the values of `WeatherData` into "animated weather icons"
+```
+import WeatherIcon from 'WeatherIcon';
+
+...
+
+toggleDisplayUnits() {
+    this.state.displayUnits === 'F' ? this.setState({
+      displayUnits: 'C'
+    }) : this.setState({
+      displayUnits: 'F'
+    });
+  }
+  ```
+  
+###7. Use [react-timestamp](https://github.com/nathanhoad/react-timestamp) to convert the dt value in `WeatherData` to a readable format.
+```
+const Timestamp = require('react-timestamp');
+...
+ <h2><Timestamp time={list.dt} format='date'/> </h2>
+```
 
 ### Usage
 The server.js file can be found at the root directory
